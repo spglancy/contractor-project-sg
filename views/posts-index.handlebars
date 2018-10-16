@@ -3,6 +3,10 @@
     <div class="col-sm-3">
       <h2><a href="/posts/{{this._id}}">{{this.title}}</a></h2>
       <small>{{this.content}}</small>
+      <form action="/posts/{{this._id}}" method="get">
+          <button type="submit" class="btn btn-primary">View</button>
+      </form>
+
     </div>
   {{/each}}
 </div>
