@@ -8,7 +8,7 @@ const Post = require('./models/post.js');
 const Comments = require('./models/comments.js');
 
 const port = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://baseuser:password1@ds159998.mlab.com:59998/contractor');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
