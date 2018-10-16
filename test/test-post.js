@@ -7,13 +7,14 @@ const Post = require('../models/post');
 chai.use(chaiHttp);
 
 const samplePost =     {
+    "title": "blah",
     "content": "asdf"
 }
 
 describe('Post', ()  => {
 
     after(() => {
-    Post.deleteMany({content: 'asdf'}).exec((err, reviews) => {
+    Post.deleteMany({content: 'asdf'}).exec((err, post) => {
       console.log(post)
       Post.remove();
     })
@@ -29,9 +30,9 @@ describe('Post', ()  => {
           done();
         });
   });
-  it('should have a place to create posts on get /posts', (done) => {
+  it('should have a place to create posts on get /posts/new', (done) => {
     chai.request(server)
-        .get('/posts')
+        .get('/posts/new')
         .end((err, res) => {
           res.should.have.status(200);
           res.should.be.html;

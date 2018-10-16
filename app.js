@@ -1,36 +1,28 @@
 const express = require('express');
-const methodOverride = require('method-override');
 const app = express();
-const bodyParser = require('body-parser');
-const postController = require('./controllers/postController.js');
-const saveNewUser = require('./controllers/registerController.js');
-const commentController = require('./controllers/commentController.js');
-const authController = require('./controllers/AuthController');
-const registerRoutes = require('./routes/registerRoutes.js');
-const exphbs = require('express-handlebars');
+var exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const port = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://spglancy:qwaszx51@ds043987.mlab.com:43987/intensive', {useNewUrlParser: true });
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+const Post = require('./models/post.js');
+const Comments = require('./models/comments.js');
 
+const port = process.env.PORT || 3000;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride('_method'))
-app.use('/', postController);
-app.use('/', commentController);
-// app.use('/', registerRoutes);
-app.use('/', authController);
+app.use(methodOverride('_method'));
 
-app.get('*', function (req, res) {
-	res.send({
-		message: 'This endpoint does not exist',
-		error: 404,
-	}, 404);
-});
-// saveNewUser(app);
+const commentController = require('./controllers/commentController.js');
+const postController = require('./controllers/postController.js');
 
-app.listen(port);
+postController(app);
+commentController(app);
+
+app.listen(port, () => {
+  console.log('App listening on port 3000!')
+})
 
 module.exports = app;

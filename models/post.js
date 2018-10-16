@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/contractor-project', {useNewUrlParser: true});
+const comment = require('./comments')
+mongoose.connect('mongodb://localhost/contracto-project', {useNewUrlParser: true});
 
-const post = mongoose.model('post', {
-  // user: String,
-  content: String,
+const Post = mongoose.model('Post', {
+  title: String,
+  content: String
 });
 
-module.exports = post;
+module.exports = Post;

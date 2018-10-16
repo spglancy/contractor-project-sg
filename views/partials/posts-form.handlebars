@@ -1,0 +1,15 @@
+<fieldset>
+  <legend>Edit Post</legend>
+  <!-- TITLE -->
+  <div class="form-group">
+    <label for="post-title">Title</label><br>
+    <input class="form-control" id="post-title" type="text" name="title" value="{{post.title}}"/>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="form-group">
+    <label for="post-description">Content</label><br>
+    <textarea class="form-control" id="post-content" name="content" rows="10" />{{post.content}}</textarea>
+  </div>
+  <a href="/">Cancel</a>
+</fieldset>

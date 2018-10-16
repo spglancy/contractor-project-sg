@@ -1,0 +1,8 @@
+<div class="row">
+  {{#each posts}}
+    <div class="col-sm-3">
+      <h2><a href="/posts/{{this._id}}">{{this.title}}</a></h2>
+      <small>{{this.content}}</small>
+    </div>
+  {{/each}}
+</div>

@@ -4,22 +4,28 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "echo\"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spglancy/Rotten-Potatoes.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spglancy/Rotten-Potatoes/issues"
+  },
+  "homepage": "https://github.com/spglancy/Rotten-Potatoes#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
-    "jsonwebtoken": "^8.3.0",
+    "heroku": "^7.14.2",
     "method-override": "^3.0.0",
-    "mocha": "^5.2.0",
-    "mongodb": "^3.1.8",
-    "mongoose": "^5.3.3"
+    "mongoose": "^5.2.13",
+    "moviedb-promise": "^1.2.6"
   }
 }
